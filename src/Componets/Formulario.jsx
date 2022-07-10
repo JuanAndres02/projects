@@ -1020,7 +1020,9 @@ const Formulario = () => {
                                 </div>
                                 <div className="centarlizar">
                                         <button type='submit' className="btn btn-primary px-5 ">Enviar</button>
-                                    </div>
+                                </div>
+
+                                <button>HI!</button>
                             </Form>
                         )}
                     </Formik>
