@@ -14,6 +14,7 @@ import SelectTallas from '../Service/SelectTallas';
 import SelectTipoCurso from '../Service/SelectTipoCurso';
 
 const FormSchema = Yup.object().shape({
+
     nombres: Yup.string()
         .max(50, 'El nombre es muy largo!')
         .required('El nombre es obligatorio'),
@@ -318,13 +319,13 @@ const Formulario = () => {
     const [checksabenadar, setchecksabenadar] = useState(false)
     const [checksabeconducir, setchecksabeconducir] = useState(false)
 
-    const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
-
     const Input = ({ field, form }) => (
         useEffect(() => {
             form.FormSchema();
         }, [])
     )
+
+    const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
 
     return (
         <>
@@ -338,43 +339,43 @@ const Formulario = () => {
                             //Datos Personales:
                             fechaIngresoInstitucion: '',
                             cargoEnInstucionId: 0,
-                            cedula: '',
-                            nombres: '',
-                            apellidos: '',
-                            apodo: '',
+                            cedula: '12312345671',
+                            nombres: 'Holaaa',
+                            apellidos: 'Adioos',
+                            apodo: 'Hola de nueo',
                             sexoId: 0,
                             fechaNacimiento: '',
-                            lugarNacimiento: '',
+                            lugarNacimiento: 'Adios',
                             nacionalidadId: 0,
                             estadoCivilId: 0,
-                            estaturaEnPie: 0,
-                            pesoEnLibras: 0,
-                            colorPelo: '',
-                            colorPiel: '',
+                            estaturaEnPie: 7, //Luego poner ''
+                            pesoEnLibras: 128,
+                            colorPelo: 'Azul marino',
+                            colorPiel: 'Prieto tirando morado',
                             grupoSanguineoId: 0,
                             tallaCamisetaId: 0,
                             tienePasaporte: false,
-                            pasaporteNum:0,
+                            pasaporteNum: '1234566',
                             tieneCuentaReservas: false,
-                            numeroCuenta: 0,
+                            numeroCuenta: '1213131',
                             tieneNSS: false,
-                            nss: 0,
+                            nss: '1234567',
                             tieneLicencia: false,
-                            licenciaCategoriaId: 0,
+                            licenciaCategoriaId: null,
                             //Informacion de contacto:
-                            direccion: '',
-                            sector: '',
+                            direccion: 'skajis',
+                            sector: 'akdga',
                             provinciaId: 0,
                             municipioId: 0,
-                            correoElectronico: '',
-                            telefonoCelular: '',
-                            telefonoResidencial: '',
-                            telefonoOficina: '',
+                            correoElectronico: 'holacrysel@misael.com',
+                            telefonoCelular: '1231231234',
+                            telefonoResidencial: '1231231234',
+                            telefonoOficina: '1231231234',
 
                             //Datos familiares:
-                            nombrePadre: '',
-                            nombreMadre: '',
-                            nombreConyuge: '',
+                            nombrePadre: 'askjf',
+                            nombreMadre: 'adgasg',
+                            nombreConyuge: 'asdgdsa',
                             tieneHijos: false,
                             volutarioHijos: [],
                             voluntariosCursos: [],
@@ -384,6 +385,7 @@ const Formulario = () => {
                             dondeTrabaja: '',
                             nivelAcademicoId: 0,
                             nombreInstitucionAcademica: '',
+                            nombreCarrera:'',
                             otraInstitucionVoluntariosHaPertenecido: false,
                             otraInstitucionVoluntariosCargo: '',
                             otraInstitucionVoluntariosNombre: '',
@@ -501,6 +503,8 @@ const Formulario = () => {
                               
                         }}
 
+
+                        
                         onSubmit={values => {
                             console.log("Guardando", values);
                             fetch('https://localhost:44395/api/ControladorVoluntarios/GuardarVoluntario', {
@@ -513,7 +517,15 @@ const Formulario = () => {
                             }).then(r => r.text()).then(v => {
                                 console.log(values);
                             });
+                            
+
+                            console.log(values);
+                            cambiarFormularioEnviado(true)
+                            setTimeout(() => cambiarFormularioEnviado(false), 5000)
                         }}
+                     
+
+
 
                         render={({ values, errors, touched, handleChange, handleBlur }) => (
                             <Form>
@@ -593,7 +605,7 @@ const Formulario = () => {
                                                         {
                                                             <label htmlFor="sexoId">Sexo
                                                                 <Field as="select" defaultValue={0} name="sexoId" className="form-select mt-3" aria-label="Default select example"  >
-                                                                    <option value={1} disabled >Selecciona el sexo </option>
+                                                                    <option value={0} disabled >Selecciona el sexo </option>
                                                                     {sexo.map((sex, i) => (
                                                                         <option key={i} value={sex.sexoId}>{sex.sexoNombre}</option>
                                                                     ))}
@@ -974,9 +986,9 @@ const Formulario = () => {
                                                                     </div>
 
                                                                     <div className="col minicomponete">
-                                                                        <label htmlFor="Apellidos"> Apellido:
-                                                                            <Field type='text' className="form-control mt-3" name={`volutarioHijos.${i}.Apellidos`} placeholder="Apellidos" />
-                                                                            <ErrorMessage name={`volutarioHijos.${i}.Apellidos`}>{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                                                                        <label htmlFor={`volutarioHijos.${i}.apellidos`}> Apellido:
+                                                                            <Field type='text' className="form-control mt-3" name={`volutarioHijos.${i}.apellidos`} placeholder="Apellidos" />
+                                                                            <ErrorMessage name={`volutarioHijos.${i}.apellidos`}>{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
                                                                         </label>
                                                                     </div>
 
@@ -996,13 +1008,13 @@ const Formulario = () => {
                                                                             <div className="col minicomponete">
                                                                                 {
                                                                                     <label htmlFor="sexoId">Sexo
-                                                                                        <Field as="select" defaultValue={0} name={`hijos.${i}.sexoId`} className="form-select mt-3" aria-label="Default select example"  >
+                                                                                        <Field as="select" defaultValue={0} name={`volutarioHijos.${i}.sexoId`} className="form-select mt-3" aria-label="Default select example"  >
                                                                                             <option value={0} disabled >Selecciona el sexo </option>
                                                                                             {sexo.map((sex, i) => (
-                                                                                                <option key={i} value={sex.sexoId}>{sex.sexoNombre}</option>
+                                                                                                <option key={i} value={sex.sexoId} >{sex.sexoNombre}</option>
                                                                                             ))}
                                                                                         </Field>
-                                                                                        <ErrorMessage name={`hijos.${i}.sexoId`}>{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                                                        <ErrorMessage name={`volutarioHijos.${i}.sexoId`}>{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
                                                                                     </label>
                                                                                 }
                                                                             </div>
@@ -1065,7 +1077,6 @@ const Formulario = () => {
                                                 )
                                                 }
                                             </div>
-                                            {nivelSuperior && (<>
                                                 <div className="row mt-3">
                                                     <div className="col minicomponete">
                                                         <label htmlFor="nombreInstitucionAcademica">Nombre de la institucion academica
@@ -1075,6 +1086,7 @@ const Formulario = () => {
                                                     </div>
                                                 </div>
 
+                                                {nivelSuperior && (<>
                                                 <div className="row mt-3">
                                                     <div className="col minicomponete">
                                                         <label htmlFor="NombreCarrera"> Profesión
@@ -1122,9 +1134,10 @@ const Formulario = () => {
                                                 </div>
  
 
-                                                {/*APARTADO PARA LOS CURSS:*/}
+                                                {/*APARTADO PARA LOS CURSOS:*/}
                                                 <div>
-                                                    <div className='card m-5'>
+                                            
+                                                <div className='card m-5'>
                                                         <FieldArray name='voluntariosCursos' render={arrayHelpers => (
                                                             <>
                                                                 <div className='col minicomponete'>
@@ -1140,7 +1153,7 @@ const Formulario = () => {
 
                                                                         <div className="col  minicomponete">
                                                                             <label htmlFor={`voluntariosCursos.${i}.añoCurso`}> Año curso:
-                                                                                <Field type="text" className="form-control mt-3" name={`cursos.${i}.añoCurso`} placeholder="Año en que lo hizo" />
+                                                                                <Field type="text" className="form-control mt-3" name={`voluntariosCursos.${i}.añoCurso`} placeholder="Año en que lo hizo" />
                                                                                 <ErrorMessage name={`voluntariosCursos.${i}.añoCurso`}>{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
                                                                             </label>
                                                                         </div>
@@ -1191,7 +1204,6 @@ const Formulario = () => {
 
                                                         </FieldArray>
                                                     </div>
-
                                                 </div>
 
                                                 <br />
@@ -1203,8 +1215,13 @@ const Formulario = () => {
                                         </div>
                                     </div>
                                 </div>
+
+                                <div>{formularioEnviado && <p className='exito'>Formulario enviado con exito!</p>}</div>
+
                                 <div className="centarlizar">
-                                    <button type='submit' className="btn btn-primary px-5 ">Enviar</button>
+                                    <button type='submit' className="btn btn-primary px-5 " onClick={() => {
+                                        FormSchema.validate(values).then( () =>{console.log("Bien") } ).catch((err) => {console.log(err)})
+                                    } }>Enviar</button>
                                 </div>
                             </Form>
                         )}>
