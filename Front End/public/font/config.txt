@@ -1,0 +1,5 @@
+﻿MaterialIcons-Regular, material icons
+MaterialIconsOutlined-Regular, Material Icons Outlined
+MaterialIconsRound-Regular, Material Icons Round
+MaterialIconsSharp-Regular, Material Icons Sharp
+MaterialIconsTwoTone-Regular, Material Icons Two Tone

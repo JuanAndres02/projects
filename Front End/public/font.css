@@ -1,0 +1,8 @@
+@font-face{ 
+    font-family: 'material icons';
+    font-weight:bold;
+    src:url('/font/MaterialIcons-Regular.ttf') format('opentype');}
+    .material-icons {
+    font-family: 'material icons';
+    font-size: 22px;font-style: normal;
+    color:black;}

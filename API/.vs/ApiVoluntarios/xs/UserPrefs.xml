@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{F188F03E-FD40-458A-AC9E-F9453788918A}|Default">
+  <MonoDevelop.Ide.ItemProperties.ApiVoluntarios PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/macbookpro/Documents/Dev/defensacivil/API/ApiVoluntarios/Controllers/ControladorVoluntarios.cs" relfile="ApiVoluntarios/Controllers/ControladorVoluntarios.cs" line="83" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ApiVoluntarios/Controllers/ControladorVoluntarios.cs">
+    <Files>
+      <File FileName="ApiVoluntarios/Controllers/ControladorVoluntarios.cs" Line="83" Column="1" />
+      <File FileName="ApiVoluntarios/Controllers/ControladorTipoDocumentos.cs" Line="1" Column="1" />
+      <File FileName="ApiVoluntarios/Controllers/ArchivosController.cs" Line="1" Column="1" />
+      <File FileName="ApiVoluntarios/Repositorios/RepositorioTipoDocumentos.cs" Line="1" Column="1" />
+      <File FileName="ApiVoluntarios/Program.cs" Line="1" Column="1" />
+      <File FileName="ApiVoluntarios/Startup.cs" Line="1" Column="1" />
+      <File FileName="ApiVoluntarios/Models/Voluntarios.cs" Line="1" Column="1" />
+      <File FileName="../../../../../../usr/local/share/dotnet/sdk/6.0.106/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.Sdk.DefaultItems.targets" Line="134" Column="5" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ApiVoluntarios" expanded="True">
+            <Node name="ApiVoluntarios" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True">
+                <Node name="ControladorVoluntarios.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

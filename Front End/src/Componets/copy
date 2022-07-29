@@ -1,0 +1,386 @@
+
+                                    <div className=" card  m-5 xs ">
+                                        <div className="card">
+                                            <h5 className="card-title text-center mt-4 mb-5">Información de contacto</h5>
+
+                                            <div className="row mt-3">
+                                                <div className="col minicomponete">
+                                                    <label htmlFor="direccion"> Dirección
+                                                        <Field type="text" className="form-control mt-3" name="direccion" placeholder="Direccion "></Field>
+                                                        <ErrorMessage name="direccion">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div className="row mt-3">
+                                                {loading ? (
+                                                    <div className="col minicomponete" >
+                                                        <div className="spinner-border" role="status" />
+                                                    </div>
+                                                ) : (
+                                                    <div className="col minicomponete">
+                                                        {
+                                                            <label htmlFor="provinciaId"> Provincia
+                                                                <Field as='select' name="provinciaId" className="form-select mt-3" aria-label="Default select example"  >
+                                                                    <option value={0} disabled>Selecciona provincia</option>
+                                                                    {provincia.map((grupo, i) => (
+                                                                        <option key={i} value={grupo.provinciaId}>{grupo.provinciaNombre}</option>
+                                                                    ))}
+                                                                </Field>
+                                                                <ErrorMessage name='provinciaId' component={() => (<div className='errorMessage'>{errors.provinciaId}</div>)} />
+                                                            </label>
+                                                        }
+                                                    </div>
+                                                )
+                                                }
+
+                                                {loading ? (
+                                                    <div className="col minicomponete" >
+                                                        <div className="spinner-border" role="status" />
+                                                    </div>
+                                                ) : (
+                                                    <div className="col minicomponete">
+                                                        <MunicipioField setmunicipio={setmunicipio}>
+                                                            <label htmlFor="municipioId"> Municipio
+                                                                <Field as='select' name="municipioId" className="form-select mt-3" placeholder='hola' aria-label="Default select example"  >
+                                                                    <option value={0} disabled >Selecciona Municipio</option>
+                                                                    {municipio.map((grupo, i) => (
+                                                                        <option key={i} value={grupo.municipioId}>{grupo.municipioNombre}</option>
+                                                                    ))}
+                                                                </Field>
+                                                                <ErrorMessage name='municipioId' component={() => (<div className='errorMessage'>{errors.municipioId}</div>)} />
+                                                            </label>
+                                                        </MunicipioField>
+                                                    </div>
+                                                )
+                                                }
+                                            </div>
+
+                                            <div className="row mt-3">
+                                                <div className="col  minicomponete">
+                                                    <label htmlFor="sector"> Sector
+                                                        <Field type="text" className="form-control mt-3" name="sector" placeholder="Sector "></Field>
+                                                        <ErrorMessage name="sector">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div className="row mt-3">
+                                                <div className="col minicomponete">
+                                                    <label htmlFor="correoElectronico"> Correo electrónico
+                                                        <Field type="text" className="form-control mt-3" name="correoElectronico" placeholder="Correo@correo.com"></Field>
+                                                        <ErrorMessage name="correoElectronico">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div className="row mt-3">
+                                                <div className="col minicomponete">
+                                                    <label htmlFor="telefonoCelular"> Teléfono celular
+                                                        <Field type="text" className="form-control mt-3" name="telefonoCelular" placeholder="000-000-0000"></Field>
+                                                        <ErrorMessage name="telefonoCelular">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div className="row mt-3">
+                                                <div className="col minicomponete">
+                                                    <label htmlFor="telefonoResidencial"> Teléfono residencial <span>(opcional)</span>
+                                                        <Field type="text" className="form-control mt-3" name="telefonoResidencial" placeholder="000-000-0000"></Field>
+                                                        <ErrorMessage name="telefonoResidencial">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+
+                                                <div className="col minicomponete">
+                                                    <label htmlFor="telefonoOficina"> Teléfono oficina <span>(opcional)</span>
+                                                        <Field type="text" className="form-control mt-3" name="telefonoOficina" placeholder="000-000-0000"></Field>
+                                                        <ErrorMessage name="telefonoOficina">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <br />
+                                            <br />
+                                        </div>
+                                    </div>
+
+                                    <div className=" card  m-5 xs ">
+                                        <div className="card">
+                                            <h5 className="card-title text-center mt-4 mb-5">Datos familiares</h5>
+                                            <div className="row mt-3">
+                                                <div className="col minicomponete">
+                                                    <label htmlFor="nombrePadre"> Padre
+                                                        <Field type="text" className="form-control mt-3" name="nombrePadre" placeholder="Nombre"></Field>
+                                                        <ErrorMessage name="nombrePadre">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div className="row mt-3">
+                                                <div className="col minicomponete">
+                                                    <label htmlFor="nombreMadre"> Madre
+                                                        <Field type="text" className="form-control mt-3" name="nombreMadre" placeholder="Nombre "></Field>
+                                                        <ErrorMessage name="nombreMadre">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div className="row mt-3">
+                                                <div className="col minicomponete">
+                                                    <label htmlFor="nombreConyuge"> Conyuge
+                                                        <Field type="text" className="form-control mt-3" name="nombreConyuge" placeholder="Nombre "></Field>
+                                                        <ErrorMessage name="nombreConyuge">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            {/*Apartado para los hijos*/}
+                                            <div>
+                                                <div className='card m-5'>
+                                                    <FieldArray name='volutarioHijos' initialValues={{ nombres: "test", apellidos: "" }} render={arrayHelpers => (
+                                                        <>
+                                                          
+                                                            {values.volutarioHijos.map((hijo, i) =>
+                                                            (<div key={i}>
+                                                                <button type='button' className="b mt-5 ms-4" onClick={() => arrayHelpers.remove(i)} >X</button>
+
+                                                                <div className=" card-body row mt-3">
+
+                                                                    <div className="col  minicomponete">
+                                                                        <label htmlFor={'volutarioHijos.' + i + '.nombres'}> Nombre:
+                                                                            <Field className="form-control mt-3" value={hijo.nombres || ""} onChange={handleChange} name={`volutarioHijos.${i}.nombres`} placeholder="Nombres" />
+                                                                            <ErrorMessage name={`volutarioHijos.${i}.nombres`}>{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                                                                        </label>
+                                                                    </div>
+
+                                                                    <div className="col minicomponete">
+                                                                        <label htmlFor={`volutarioHijos.${i}.apellidos`}> Apellido:
+                                                                            <Field type='text' className="form-control mt-3" value={hijo.apellidos || ""} onChange={handleChange} name={`volutarioHijos.${i}.apellidos`} placeholder="Apellidos" />
+                                                                            <ErrorMessage name={`volutarioHijos.${i}.apellidos`}>{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                                                                        </label>
+                                                                    </div>
+
+                                                                    <div className="row mt-3">
+                                                                        <div className="col minicomponete">
+                                                                            <label htmlFor={`volutarioHijos.${i}.fechaNacimiento`} > Fecha nacimiento
+                                                                                <Field type="date" value={hijo.fechaNacimiento || ""} onChange={handleChange} className="form-control mt-3" name={`volutarioHijos.${i}.fechaNacimiento`} placeholder="FechaNacimiento" />
+                                                                                <ErrorMessage name={`volutarioHijos.${i}.fechaNacimiento`}>{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                                            </label>
+                                                                        </div>
+
+                                                                        {loading ? (
+                                                                            <div className="col minicomponete" >
+                                                                                <div className="spinner-border" role="status" />
+                                                                            </div>
+                                                                        ) : (
+                                                                            <div className="col minicomponete">
+                                                                                {
+                                                                                    <label htmlFor="sexoId">Sexo
+                                                                                        <Field as="select" name={`volutarioHijos.${i}.sexoId`} className="form-select mt-3" aria-label="Default select example"  >
+                                                                                            <option value="">Seleccione el sexo </option>
+                                                                                            {sexo.map((sex, i) => (
+                                                                                                <option key={i} value={sex.sexoId} >{sex.sexoNombre}</option>
+                                                                                            ))}
+                                                                                        </Field>
+                                                                                        <ErrorMessage name={`volutarioHijos.${i}.sexoId`}>{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                                                    </label>
+                                                                                }
+                                                                            </div>
+                                                                        )
+                                                                        }
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                            ) 
+                                                            )}
+                                                            <div className='col minicomponete'>
+                                                                <center>
+                                                                    <button type='button' className="btn btn-primary mt-3 " onClick={() => arrayHelpers.push({})}>Agregar hijo</button>
+                                                                </center>
+                                                            </div>
+                                                        </>
+                                                    )}>
+
+                                                    </FieldArray>
+                                                </div>
+
+                                            </div>
+
+                                            <br />
+                                            <br />
+                                        </div>
+                                    </div>
+
+                                    <div className=" card  m-5 xs ">
+                                        <div className="card">
+                                            <h5 className="card-title text-center mt-4 mb-5">Experiencia</h5>
+
+                                            <div className="row ">
+                                                <div className=" col minicomponete">
+                                                    <label className='mt-3' htmlFor="dondeTrabaja"> Es empleado actualmente?
+                                                        <Field className="form-check " type="checkbox" name="esEmpleado" id="esEmpleado" onClick={() => clearFields(setFieldValue, [{ name: "dondeTrabaja", defaultValue: "" }])} />
+                                                        {values.esEmpleado &&
+                                                            <Field type="text" className="form-control mt-1" name="dondeTrabaja" placeholder="Donde" />
+                                                        }
+                                                        <ErrorMessage name="dondeTrabaja">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div className="row mt-3">
+
+                                                <div className="col minicomponete">
+                                                    {
+                                                        <label htmlFor="nivelAcademicoId"> Nivel académico
+                                                            <select name="nivelAcademicoId" className="form-select mt-3" onChange={(e) => { setFieldValue("nivelSuperior", e.target.options[e.target.selectedIndex].dataset.requierenombre === "true"); clearFields(setFieldValue, [{ name: "NombreCarrera", defaultValue: "" }]); }} aria-label="Default select example"  >
+                                                                <option value={0} disabled >Selecciona nivel academico</option>
+                                                                {nivelacademico.map((grupo, i) => (
+                                                                    <option key={i} value={grupo.nivelAcademicoId} data-requierenombre={grupo.requiereNombre}>{grupo.nivelAcademicoNombre}</option>
+                                                                ))}
+                                                            </select>
+                                                        </label>
+                                                    }
+
+                                                </div>
+
+                                            </div>
+                                            <div className="row mt-3">
+                                                <div className="col minicomponete">
+                                                    <label htmlFor="nombreInstitucionAcademica">Nombre de la institución académica
+                                                        <Field type="text" className="form-control mt-3" name="nombreInstitucionAcademica" placeholder="Institución académica"></Field>
+                                                        <ErrorMessage name="nombreInstitucionAcademica">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            {values.nivelSuperior && (<>
+                                                <div className="row mt-3">
+                                                    <div className="col minicomponete">
+                                                        <label htmlFor="NombreCarrera"> Profesión
+                                                            <Field type="text" className="form-control mt-3" name="NombreCarrera" placeholder="Carrera "></Field>
+                                                            <ErrorMessage name="NombreCarrera">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </>)
+                                            }
+
+
+                                            <div className="row ">
+                                                <div className=" col minicomponete">
+                                                    <label className='mt-3' htmlFor="otraInstitucionVoluntariosNombre">  En otra institución ha pertenecido como voluntario
+                                                        <Field className="form-check " type="checkbox" name="otraInstitucionVoluntariosHaPertenecido" onClick={(x) => { clearFields(setFieldValue, [{ name: "otraInstitucionVoluntariosNombre", defaultValue: "" }, { name: "otraInstitucionVoluntariosCargo", defaultValue: "" }]) }} />
+                                                        {values.otraInstitucionVoluntariosHaPertenecido &&
+                                                            <Field type="text" className="form-control mt-1" name="otraInstitucionVoluntariosNombre" placeholder="Nombre institucion"></Field>
+                                                        }
+                                                        <ErrorMessage name="otraInstitucionVoluntariosNombre">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+
+                                                        {values.otraInstitucionVoluntariosHaPertenecido &&
+                                                            <label className="mt-3 my-3" htmlFor="otraInstitucionVoluntariosCargo"> Cargo dentro de la institución
+                                                                <Field type="text" className="form-control mt-3 my-3" name="otraInstitucionVoluntariosCargo" placeholder="Cargo "></Field>
+                                                                <ErrorMessage name="otraInstitucionVoluntariosCargo">{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                            </label>
+                                                        }
+                                                    </label>
+                                                </div>
+
+                                                <div className="row ">
+                                                    <div className=" col minicomponete">
+                                                        <label className='mt-3' htmlFor="sabeNadar"> Sabe nadar
+                                                            <Field className="form-check " type="checkbox" name="sabeNadar"></Field>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                {!values.tieneLicencia && (
+                                                    <div className="row ">
+                                                        <div className=" col minicomponete">
+                                                            <label className='mt-3' htmlFor="sabeConducir"> Sabe conducir
+                                                                <Field className="form-check " type="checkbox" name="sabeConducir"></Field>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                )}
+
+                                                {/*APARTADO PARA LOS CURSOS:*/}
+                                                <div>
+
+                                                    <div className='card m-5'>
+                                                        <FieldArray name='voluntariosCursos' render={arrayHelpers => (
+                                                            <>
+                                                                <div className='col minicomponete'>
+                                                                    <center>
+                                                                        <button type='button' className="btn btn-primary mt-3 " onClick={() => arrayHelpers.push({})}>Agregar Curso</button>
+                                                                    </center>
+                                                                </div>
+                                                                {values.voluntariosCursos.map((curso, i) =>
+                                                                (<div key={i}>
+                                                                    <button type='button' className="b mt-5 ms-4" onClick={() => arrayHelpers.remove(i)} >X</button>
+
+                                                                    <div className=" card-body row mt-3">
+
+                                                                        <div className="col  minicomponete">
+                                                                            <label htmlFor={`voluntariosCursos.${i}.añoCurso`}> Año curso:
+                                                                                <Field type="text" value={curso.añoCurso || ""} onChange={handleChange} className="form-control mt-3" name={`voluntariosCursos.${i}.añoCurso`} placeholder="Año en que lo hizo"></Field>
+                                                                                <ErrorMessage name={`voluntariosCursos.${i}.añoCurso`}>{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                                                                            </label>
+                                                                        </div>
+
+                                                                        <div className="col minicomponete">
+                                                                            <label htmlFor={`voluntariosCursos.${i}.nivelInstitucion`} > Nivel de la institución:
+                                                                                <Field type='text' value={curso.nivelInstitucion || ""} onChange={handleChange} className="form-control mt-3" name={`voluntariosCursos.${i}.nivelInstitucion`} placeholder="Nivel de la institución" />
+                                                                                <ErrorMessage name={`voluntariosCursos.${i}.nivelInstitucion`}>{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                                                                            </label>
+                                                                        </div>
+
+                                                                        <div className="row mt-3">
+                                                                            <div className="col minicomponete">
+                                                                                <label htmlFor={`voluntariosCursos.${i}.nombreInstitucion`}>Nombre de la institución
+                                                                                    <Field type='text' value={curso.nombreInstitucion || ""} onChange={handleChange} className="form-control mt-3" name={`voluntariosCursos.${i}.nombreInstitucion`} placeholder="Nombre de la institución" />
+                                                                                    <ErrorMessage name={`voluntariosCursos.${i}.nombreInstitucion`}>{msg => <div className="errorMessage">{msg}</div>}</ErrorMessage>
+                                                                                </label>
+                                                                            </div>
+
+                                                                            {loading ? (
+                                                                                <div className="col minicomponete" >
+                                                                                    <div className="spinner-border" role="status" />
+                                                                                </div>
+                                                                            ) : (
+                                                                                <div className="col minicomponete">
+                                                                                    {
+                                                                                        <label name={`voluntariosCursos.${i}.tipoCursoId`} >Tipo Curso:
+                                                                                            <Field as="select" name={`voluntariosCursos.${i}.tipoCursoId`} className="form-select mt-3" aria-label="Default select example"  >
+                                                                                                <option value="">Selecciona el tipo curso </option>
+                                                                                                {tipoCurso.map((curso, i) => (
+                                                                                                    <option key={i} value={curso.tipoCursoId}>{curso.tipoCurso}</option>
+                                                                                                ))}
+                                                                                            </Field>
+                                                                                            <ErrorMessage name={`voluntariosCursos.${i}.tipoCursoId`}>{msg => <div className='errorMessage'>{msg}</div>}</ErrorMessage>
+                                                                                        </label>
+                                                                                    }
+                                                                                </div>
+                                                                            )
+                                                                            }
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                ))}
+                                                            </>
+                                                        )}>
+
+                                                        </FieldArray>
+                                                    </div>
+                                                </div>
+
+                                                <br />
+                                                <br />
+
+                                            </div>
+                                            <br />
+                                            <br />
+                                        </div>
+                                    </div>
